@@ -63,22 +63,27 @@ public class QueueLinkList {
         size++;
     }
 
-        public int remove() {
-            if (isEmpty()) {
-                return 0;
-            }
-            Link temp = first;
-            first = first.getNext();
-            if (first != null) {
-                first.setPrev(null);
-            } else {
-                last = null;
-            }
-            size = size - 1;
-            return temp.getData();
+    public int remove() {
+        double start = System.currentTimeMillis();
+        if (isEmpty()) {
+            return 0;
+        }
+        Link temp = first;
+        first = first.getNext();
+        if (first != null) {
+            first.setPrev(null);
+        } else {
+            last = null;
+        }
+        size = size - 1;
+        double end = System.currentTimeMillis();
+        double time = end - start;
+        System.out.println("\nЧасу витрачено: " + time);
+        return temp.getData();
     }
 
     public String toString() {
+        double start = System.currentTimeMillis();
         StringBuilder sb = new StringBuilder("[");
         Link current = first;
         while (current != null) {
@@ -88,6 +93,9 @@ public class QueueLinkList {
             current = current.getNext();
         }
         sb.append("]");
+        double end = System.currentTimeMillis();
+        double time = end - start;
+        System.out.println("Часу витрачено: " + time);
         return sb.toString();
     }
 }

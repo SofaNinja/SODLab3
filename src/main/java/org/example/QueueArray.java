@@ -17,9 +17,13 @@ public class QueueArray {
     }
 
     public int remove() {
+        double start = System.currentTimeMillis();
         int result = data[0];
         data[0] = data[size - 1];
         sort();
+        double end = System.currentTimeMillis();
+        double time = end - start;
+        System.out.println("Часу витрачено: " + time);
         return result;
     }
 
@@ -60,12 +64,16 @@ public class QueueArray {
 
     @Override
     public String toString() {
+        double start = System.currentTimeMillis();
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for (int i = 0; i < size; i++) {
             sb.append(data[i]).append(", ");
         }
         sb.append("]");
+        double end = System.currentTimeMillis();
+        double time = end - start;
+        System.out.println("\nЧасу витрачено: " + time);
         return sb.toString();
     }
 }
